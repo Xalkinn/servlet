@@ -21,6 +21,5 @@ public class testparam1 extends GenericTpServlet {
 		map = req.getParameterMap();
 		
 		
-		
 	}
 }
