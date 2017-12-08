@@ -7,3 +7,7 @@
 <title>Information livre</title>
 </head>
 <body>
+
+<form action="../private/logout" method="post">
+<input type="submit" value="Se deconnecter"></input>
+</form>

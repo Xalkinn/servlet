@@ -33,7 +33,8 @@ public class LoginServlet extends GenericTpServlet {
 			res.sendRedirect("../private/home.jsp");
 		}
 		else {
-			res.getOutputStream().println("Erreur. Authentification incorrect");
+			//res.getOutputStream().println("Erreur. Authentification incorrect");
+			res.sendRedirect("../public/login.jsp");
 		}
 	}
 }
