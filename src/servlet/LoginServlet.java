@@ -30,6 +30,7 @@ public class LoginServlet extends GenericTpServlet {
 			utilisateur.setLoginDate(new Date());
 			
 			req.getSession().setAttribute("USER", utilisateur);
+			req.getSession().setAttribute("connecte", true);
 			res.sendRedirect("../private/home.jsp");
 		}
 		else {

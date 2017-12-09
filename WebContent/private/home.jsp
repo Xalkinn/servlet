@@ -1,6 +1,4 @@
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Date"%>
 <%@page import="biblio.Book"%>
 <%@page import="biblio.Library"%>
@@ -15,7 +13,7 @@
 	
 	<% UserBean utilisateur = (UserBean) request.getSession().getAttribute("USER"); %>
 	
-	<h2><%= "L'utilisateur " + utilisateur.getLogin() + " est connecte depuis le " + utilisateur.getLoginDate() %></h2></br>
+	<h2><%= "L'utilisateur " + utilisateur.getLogin() + " est connecte depuis le " + utilisateur.getLoginDate() %></h2>
 	
 	<center>
 	<%  Library lib = Library.getInstance();

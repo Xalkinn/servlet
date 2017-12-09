@@ -8,43 +8,31 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet Filter implementation class filter
- */
-@WebFilter("/filter")
+@WebFilter(filterName="filter", urlPatterns = {"/private/*"})
 public class filter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public filter() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see Filter#destroy()
-	 */
+	@Override
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+			throws IOException, ServletException {
+		if (((HttpServletRequest) req).getSession().getAttribute("connecte") != null) {
+			chain.doFilter(req, res);
+		}
+		else {
+			((HttpServletResponse) res).sendRedirect("../public/login.jsp");
+		}
+	}
+	
+	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
-
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
+	@Override
+	public void init(FilterConfig arg0) throws ServletException {
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+    
 
 }
